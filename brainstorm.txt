@@ -48,6 +48,7 @@ Board
  - #render_board() - This prints out the board
  - #get_cell_index(character) - This method is used to return the index from @cell_code
  - #register_mark_symbol(location, mark) - This method marks the selected cell
+ - #cell_filled? - This method check if all the cells are field
 
 Flow:
 Instantiate Board
@@ -75,5 +76,6 @@ Game Loop:
     Display "Name is the Winner!"
     Break Loop
 
-  Otherwise:
-    next;
+  if Cells is all filled up 
+    Display "Tie! No one wins!"
+    Break Loop
