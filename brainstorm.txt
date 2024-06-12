@@ -1,0 +1,78 @@
+Hmmm, what should be the classes? 
+well there are 2 entities i think of,
+Player_1 and Player_2
+They both have common abilities right? to place a mark. the only difference is their marks type,
+Player_1 will be the O, and Player_2 will be the X
+
+aside from the players, what are the other entities?
+Well to place their marks, we need a board. So we need a Game Class that 
+handles the board, and inside that game instance, we have to put 2 players
+
+But how? how do i make the board? Im thinking of using 2d dimensional array instead,
+so a Mapping of Board (3x3), Ill be providing a codename for each cells, ex: a1, b2, c3
+What it actually looks like:
+[
+    1  2  3
+ a [X, X, X],
+ b [X, X, X],
+ c [X, X, X],
+]
+
+In able to play the game, the game needs 2 players, so it checks first if 
+the game instance have 2 players first before the game begins. then the board gets loaded
+with new board (empty board, so that players can enter their marks).
+Each turn, the game checks if theres a pattern, if so, Display the winner! 
+
+Entities:
+
+Game
+ - @turn: Integer - This will be the basis on whos turn it is, Default Value is 0
+ - @players: Array of Instances - Contains 2 Player Instances
+ - @board: Instance - Contains the Board
+ - #initialize(Board Instance) - Setup The Game Board
+ - #register_player(Player Instance) - Setup the Players
+ - #game_start() - The Game Flow 
+ - #pattern_found?() - This method checks if theres already a pattern for a straight line
+ - #display_winner() - Display the name of the winner (The player)
+
+Player
+ - @name: String - This holds the name of that player (for more customized game)
+ - @mark_symbol: String (Character) - What Mark they are assigned to (Depending on creation)
+ - #initialize(name, mark_symbol) - Populate the instance variables
+ - #get_name() - A getter method to get the name (returns the string instead of print)
+
+Board
+ - @board: 2-Dimensional Array - This holds the 3x3 cells board
+ - @cell_code: Hash - This dictionary holds the equivalent indexes of the board
+ - #render_board() - This prints out the board
+ - #get_cell_index() - This method is used to return the index from @cell_code
+ - #register_mark_symbol(row, column, mark) - This method marks the selected cell
+
+Flow:
+Instantiate Board
+Instantiate Game Class => Board
+
+Game Start!
+
+Get Player_1's Name 
+Create Player Instance => Name, "O"
+Register Player => Player_1
+
+Get Player_2's Name
+Crate Player Instance => Name, "X"
+Register Player => Player_2
+
+Game Loop:
+  Display "Game Start!"
+  Render Board
+
+  Player_X turn!
+  Register Mark Symbol to Cell
+
+  if Pattern Is Found?
+    Get Player_X's Name
+    Display "Name is the Winner!"
+    Break Loop
+
+  Otherwise:
+    next;
