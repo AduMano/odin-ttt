@@ -39,20 +39,19 @@ Player
  - @name: String - This holds the name of that player (for more customized game)
  - @mark_symbol: String (Character) - What Mark they are assigned to (Depending on creation)
  - #initialize(name, mark_symbol) - Populate the instance variables
- - #get_name() - A getter method to get the name (returns the string instead of print)
+ - #name() - A getter method to get the name (returns the string instead of print)
+ - #mark_symbol() - A getter method to get the mark
 
 Board
  - @board: 2-Dimensional Array - This holds the 3x3 cells board
  - @cell_code: Hash - This dictionary holds the equivalent indexes of the board
  - #render_board() - This prints out the board
- - #get_cell_index() - This method is used to return the index from @cell_code
+ - #get_cell_index(character) - This method is used to return the index from @cell_code
  - #register_mark_symbol(row, column, mark) - This method marks the selected cell
 
 Flow:
 Instantiate Board
 Instantiate Game Class => Board
-
-Game Start!
 
 Get Player_1's Name 
 Create Player Instance => Name, "O"
@@ -61,6 +60,8 @@ Register Player => Player_1
 Get Player_2's Name
 Crate Player Instance => Name, "X"
 Register Player => Player_2
+
+Game Start!
 
 Game Loop:
   Display "Game Start!"
