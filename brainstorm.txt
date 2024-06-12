@@ -47,7 +47,7 @@ Board
  - @cell_code: Hash - This dictionary holds the equivalent indexes of the board
  - #render_board() - This prints out the board
  - #get_cell_index(character) - This method is used to return the index from @cell_code
- - #register_mark_symbol(location) - This method marks the selected cell
+ - #register_mark_symbol(location, mark) - This method marks the selected cell
 
 Flow:
 Instantiate Board
