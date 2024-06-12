@@ -32,7 +32,6 @@ Game
  - #initialize(Board Instance) - Setup The Game Board
  - #register_player(Player Instance) - Setup the Players
  - #game_start() - The Game Flow 
- - #pattern_found?() - This method checks if theres already a pattern for a straight line
  - #display_winner() - Display the name of the winner (The player)
 
 Player
@@ -46,6 +45,7 @@ Board
  - @board: 2-Dimensional Array - This holds the 3x3 cells board
  - @cell_code: Hash - This dictionary holds the equivalent indexes of the board
  - #render_board() - This prints out the board
+ - #pattern_found?(mark) - This method checks if theres already a pattern for a straight line
  - #get_cell_index(character) - This method is used to return the index from @cell_code
  - #register_mark_symbol(location, mark) - This method marks the selected cell
  - #cell_filled? - This method check if all the cells are field
