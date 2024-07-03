@@ -2,7 +2,7 @@
 
 # Class for instantiating players
 class Player
-  attr_reader :name, :mark_symbol
+  attr_accessor :name, :mark_symbol
 
   def initialize(name, mark_symbol)
     @name = name

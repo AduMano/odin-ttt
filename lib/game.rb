@@ -7,10 +7,11 @@ require_relative('modules/user_inputs')
 class Game
   include UserInputs
 
+  attr_accessor :turn, :players, :board
+
   def initialize(board)
     @turn = 0
     @players = []
-    @board = nil
 
     @board = board
   end
@@ -28,7 +29,11 @@ class Game
         puts 'That location is already marked.'
       end
 
-      winner if @board.pattern_found?
+      if @board.pattern_found?
+        winner
+        break
+      end
+
       break if @board.filled?
 
       @turn = (@turn + 1) % @players.length
@@ -42,6 +47,5 @@ class Game
     @board.render_board
 
     puts "#{@players[@turn].name} is the Winner!".colorize(:yellow)
-    exit(0)
   end
 end
