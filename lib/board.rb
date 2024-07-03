@@ -8,6 +8,8 @@ require_relative('modules/board_patterns')
 class Board
   include BoardPattern
 
+  attr_accessor :board, :cell_code
+
   def initialize
     @board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
     @cell_code = {
@@ -30,7 +32,7 @@ class Board
     puts ''
   end
 
-  def cells_are_all_filled?
+  def filled?
     @board.flatten.none? { |cell| cell.eql?(' ') }
   end
 

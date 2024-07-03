@@ -29,7 +29,7 @@ class Game
       end
 
       winner if @board.pattern_found?
-      break if @board.cells_are_all_filled?
+      break if @board.filled?
 
       @turn = (@turn + 1) % @players.length
     end
